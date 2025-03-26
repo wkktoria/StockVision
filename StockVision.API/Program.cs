@@ -18,10 +18,11 @@ var financialModelingPrepOptions = builder.Configuration.GetSection(nameof(Finan
                                        .Get<FinancialModelingPrepOptions>() ??
                                    throw new NullReferenceException("Options for Financial Modeling Prep are missing");
 builder.Services.AddHttpClient("FinancialModelingPrep", options =>
-{
-    options.BaseAddress = new Uri(financialModelingPrepOptions.ApiUrl);
-    options.Timeout = TimeSpan.FromSeconds(10);
-}).AddHttpMessageHandler(() => new ApiKeyHandler(financialModelingPrepOptions.ApiKey));
+    {
+        options.BaseAddress = new Uri(financialModelingPrepOptions.ApiUrl);
+        options.Timeout = TimeSpan.FromSeconds(10);
+    }).AddHttpMessageHandler(() => new ApiKeyHandler(financialModelingPrepOptions.ApiKey))
+    .AddHttpMessageHandler(() => new LimitResponseHandler(financialModelingPrepOptions.Limit));
 
 var app = builder.Build();
 
