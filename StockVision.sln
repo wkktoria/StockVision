@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVision.API", "StockVision.API\StockVision.API.csproj", "{45FD289D-6DF1-4980-8965-B75563769CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVision.Core.Application", "StockVision.Core.Application\StockVision.Core.Application.csproj", "{2586EDCF-6C21-4915-90F3-6F9EAF5384AF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVision.Core.Domain", "StockVision.Core.Domain\StockVision.Core.Domain.csproj", "{186113CA-CA63-4E1A-82D0-C36AAEE188CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockVision.Infrastructure", "StockVision.Infrastructure\StockVision.Infrastructure.csproj", "{9D466C7F-DC24-46BE-AD00-93FEE1C18FEA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45FD289D-6DF1-4980-8965-B75563769CCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45FD289D-6DF1-4980-8965-B75563769CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45FD289D-6DF1-4980-8965-B75563769CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45FD289D-6DF1-4980-8965-B75563769CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2586EDCF-6C21-4915-90F3-6F9EAF5384AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2586EDCF-6C21-4915-90F3-6F9EAF5384AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2586EDCF-6C21-4915-90F3-6F9EAF5384AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2586EDCF-6C21-4915-90F3-6F9EAF5384AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{186113CA-CA63-4E1A-82D0-C36AAEE188CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{186113CA-CA63-4E1A-82D0-C36AAEE188CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{186113CA-CA63-4E1A-82D0-C36AAEE188CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{186113CA-CA63-4E1A-82D0-C36AAEE188CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D466C7F-DC24-46BE-AD00-93FEE1C18FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D466C7F-DC24-46BE-AD00-93FEE1C18FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D466C7F-DC24-46BE-AD00-93FEE1C18FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D466C7F-DC24-46BE-AD00-93FEE1C18FEA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
