@@ -1,7 +1,4 @@
-using StockVision.API.DelegatingHandlers;
-using StockVision.Core.Domain.Interfaces.Repositories;
-using StockVision.Core.Domain.Options;
-using StockVision.Infrastructure.Repositories;
+using StockVision.API.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,17 +9,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddTransient<IFinancialRepository, FinancialRepository>();
-
-var financialModelingPrepOptions = builder.Configuration.GetSection(nameof(FinancialModelingPrepOptions))
-                                       .Get<FinancialModelingPrepOptions>() ??
-                                   throw new NullReferenceException("Options for Financial Modeling Prep are missing");
-builder.Services.AddHttpClient("FinancialModelingPrep", options =>
-    {
-        options.BaseAddress = new Uri(financialModelingPrepOptions.ApiUrl);
-        options.Timeout = TimeSpan.FromSeconds(10);
-    }).AddHttpMessageHandler(() => new ApiKeyHandler(financialModelingPrepOptions.ApiKey))
-    .AddHttpMessageHandler(() => new LimitResponseHandler(financialModelingPrepOptions.Limit));
+builder.Services.AddServices();
+builder.Services.AddClients(builder.Configuration);
 
 var app = builder.Build();
 
