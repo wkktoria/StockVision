@@ -11,7 +11,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\" />
+      <ProjectReference Include="..\StockVision.Core.Domain\StockVision.Core.Domain.csproj" />
+      <ProjectReference Include="..\StockVision.Infrastructure\StockVision.Infrastructure.csproj" />
     </ItemGroup>
 
 </Project>
