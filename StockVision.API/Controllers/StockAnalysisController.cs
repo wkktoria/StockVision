@@ -3,11 +3,9 @@ using StockVision.Core.Domain.Interfaces.Repositories;
 
 namespace StockVision.API.Controllers;
 
-[ApiController]
-[Route("[controller]")]
-public class TestController(IFinancialRepository financialRepository, ILogger<TestController> logger) : Controller
+public class StockAnalysisController(IFinancialRepository financialRepository) : Controller
 {
-    [HttpGet]
+    [HttpGet(Name = "GetCompanyReportInfo")]
     public async Task<JsonResult> Get()
     {
         var result = await financialRepository.GetDataAsync("AAPL");
