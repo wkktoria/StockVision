@@ -3,6 +3,7 @@ using StockVision.Core.Domain.Constants;
 using StockVision.Core.Domain.Interfaces.Repositories;
 using StockVision.Core.Domain.Options;
 using StockVision.Infrastructure.Repositories;
+using StockVision.Infrastructure.Responses;
 
 namespace StockVision.API.Extensions;
 
@@ -10,7 +11,7 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
-        services.AddTransient<IFinancialRepository, FinancialRepository>();
+        services.AddTransient(typeof(IFinancialReportRepository<>), typeof(FinancialReportReportRepository<>));
 
         return services;
     }

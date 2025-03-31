@@ -1,8 +1,12 @@
 using System.Text.Json.Serialization;
+using StockVision.Core.Domain.Responses;
+using StockVision.Infrastructure.Attributes;
+using StockVision.Infrastructure.Constants;
 
-namespace StockVision.Core.Domain.Responses;
+namespace StockVision.Infrastructure.Responses;
 
-public class IncomeReport
+[ApiEndpoint(Endpoint = FinancialModelingRequest.IncomeReport)]
+public class IncomeReport : ApiReportBase
 {
     [JsonPropertyName("date")] public DateTime Date { get; set; }
 

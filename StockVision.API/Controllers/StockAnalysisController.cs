@@ -1,14 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using StockVision.Core.Domain.Interfaces.Repositories;
+using StockVision.Infrastructure.Responses;
 
 namespace StockVision.API.Controllers;
 
-public class StockAnalysisController(IFinancialRepository financialRepository) : Controller
+[ApiController]
+[Route("[controller]")]
+public class StockAnalysisController(IFinancialReportRepository<IncomeReport> financialReportRepository) : Controller
 {
     [HttpGet(Name = "GetCompanyReportInfo")]
     public async Task<JsonResult> Get()
     {
-        var result = await financialRepository.GetDataAsync("AAPL");
+        var result = await financialReportRepository.GetDataAsync("AAPL");
         return Json(result);
     }
 }
