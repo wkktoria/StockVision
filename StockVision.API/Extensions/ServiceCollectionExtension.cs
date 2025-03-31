@@ -3,7 +3,6 @@ using StockVision.Core.Domain.Constants;
 using StockVision.Core.Domain.Interfaces.Repositories;
 using StockVision.Core.Domain.Options;
 using StockVision.Infrastructure.Repositories;
-using StockVision.Infrastructure.Responses;
 
 namespace StockVision.API.Extensions;
 
@@ -33,6 +32,14 @@ public static class ServiceCollectionExtension
                 options.Timeout = TimeSpan.FromSeconds(10);
             }).AddHttpMessageHandler(() => new ApiKeyHandler(financialModelingPrepOptions.ApiKey))
             .AddHttpMessageHandler(() => new LimitResponseHandler(financialModelingPrepOptions.Limit));
+
+        return services;
+    }
+
+    public static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
+    {
+        services.Configure<ReportIndicatorOptions>(options => configuration
+            .GetSection(nameof(ReportIndicatorOptions)).Bind(options));
 
         return services;
     }
