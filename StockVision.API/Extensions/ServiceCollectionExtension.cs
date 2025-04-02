@@ -1,6 +1,8 @@
 using StockVision.API.DelegatingHandlers;
+using StockVision.Core.Application.Services;
 using StockVision.Core.Domain.Constants;
 using StockVision.Core.Domain.Interfaces.Repositories;
+using StockVision.Core.Domain.Interfaces.Services;
 using StockVision.Core.Domain.Options;
 using StockVision.Infrastructure.Repositories;
 
@@ -11,6 +13,7 @@ public static class ServiceCollectionExtension
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
         services.AddTransient(typeof(IFinancialReportRepository<>), typeof(FinancialReportReportRepository<>));
+        services.AddTransient(typeof(IIndicatorReportPeriodicService<>), typeof(IndicatorReportPeriodicService<>));
 
         return services;
     }

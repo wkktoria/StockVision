@@ -8,8 +8,6 @@ namespace StockVision.Infrastructure.Responses;
 [ApiEndpoint(Endpoint = FinancialModelingRequest.CashFlowReport)]
 public class CashFlowReport : ApiReportBase
 {
-    [JsonPropertyName("date")] public DateTime Date { get; set; }
-
     [JsonPropertyName("symbol")] public string Symbol { get; set; }
 
     [JsonPropertyName("reportedCurrency")] public string ReportedCurrency { get; set; }
