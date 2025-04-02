@@ -11,7 +11,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddServices();
 builder.Services.AddClients(builder.Configuration);
-builder.Services.AddOptions(builder.Configuration);
+builder.Services.AddSettingsOptions(builder.Configuration);
 
 var app = builder.Build();
 

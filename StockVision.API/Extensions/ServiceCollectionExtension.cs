@@ -39,7 +39,7 @@ public static class ServiceCollectionExtension
         return services;
     }
 
-    public static IServiceCollection AddOptions(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddSettingsOptions(this IServiceCollection services, IConfiguration configuration)
     {
         services.Configure<ReportIndicatorOptions>(options => configuration
             .GetSection(nameof(ReportIndicatorOptions)).Bind(options));
