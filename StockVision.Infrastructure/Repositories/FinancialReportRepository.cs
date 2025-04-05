@@ -9,9 +9,9 @@ using StockVision.Infrastructure.Attributes;
 
 namespace StockVision.Infrastructure.Repositories;
 
-public class FinancialReportReportRepository<T>(
+public class FinancialReportRepository<T>(
     IHttpClientFactory httpClientFactory,
-    ILogger<FinancialReportReportRepository<T>> logger)
+    ILogger<FinancialReportRepository<T>> logger)
     : IFinancialReportRepository<T> where T : ApiReportBase
 {
     private readonly HttpClient _httpClient = httpClientFactory.CreateClient(HttpClientName.FinancialModeling);

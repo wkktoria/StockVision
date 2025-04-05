@@ -12,8 +12,9 @@ public static class ServiceCollectionExtension
 {
     public static IServiceCollection AddServices(this IServiceCollection services)
     {
-        services.AddTransient(typeof(IFinancialReportRepository<>), typeof(FinancialReportReportRepository<>));
+        services.AddTransient(typeof(IFinancialReportRepository<>), typeof(FinancialReportRepository<>));
         services.AddTransient(typeof(IIndicatorReportPeriodicService<>), typeof(IndicatorReportPeriodicService<>));
+        services.AddTransient<IFinancialReportService, FinancialReportService>();
 
         return services;
     }

@@ -15,9 +15,8 @@ public class IndicatorReportPeriodicService<T>(
 {
     private readonly ReportIndicatorOptions _reportIndicatorOptions = reportIndicatorOptions.Value;
 
-    public async Task FillFormulaByPeriodicReportAsync(string symbol)
+    public async Task FillFormulaByPeriodicReportAsync(string symbol, Dictionary<int, ReportIndicator> resultDictionary)
     {
-        var resultDictionary = new Dictionary<int, ReportIndicator>();
         var reportData = await financialReportRepository.GetDataAsync(symbol);
         ProcessReportAndUpdateIndicator(reportData, resultDictionary);
     }
@@ -26,13 +25,17 @@ public class IndicatorReportPeriodicService<T>(
     {
         foreach (var singleReport in reportData)
         {
-            var reportIndicator = MapIndicatorOptionsToDomain();
-            resultDictionary.Add(singleReport.Date.Year, reportIndicator);
+            if (!resultDictionary.TryGetValue(singleReport.Date.Year, out var reportIndicator))
+            {
+                reportIndicator = MapIndicatorOptionsToDomain();
+                resultDictionary.Add(singleReport.Date.Year, reportIndicator);
+            }
+
             ReplaceFormula(reportIndicator, singleReport);
         }
     }
 
-    private void ReplaceFormula(ReportIndicator reportIndicatorData, T singleReport)
+    private static void ReplaceFormula(ReportIndicator reportIndicatorData, T singleReport)
     {
         foreach (var reportIndicator in reportIndicatorData.IndicatorsData)
         {
@@ -43,7 +46,7 @@ public class IndicatorReportPeriodicService<T>(
     private ReportIndicator MapIndicatorOptionsToDomain()
     {
         var reportIndicator = new ReportIndicator();
-        
+
         foreach (var reportIndicatorInfo in _reportIndicatorOptions.IndicatorsInfo)
         {
             var indicator = new Indicator
