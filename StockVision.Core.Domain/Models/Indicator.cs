@@ -27,7 +27,7 @@ public class Indicator(
 
     public string Note { get; private set; } = note;
 
-    public void ReplaceIndicatorByReportData<T>(T singleReport) where T : ApiReportBase
+    public void ReplaceIndicatorByReportData<T>(T singleReport) where T : PeriodicReportBase
     {
         var type = singleReport.GetType();
         var properties = type.GetProperties();
@@ -57,7 +57,7 @@ public class Indicator(
         }
     }
 
-    private static string GetValueForProperty<T>(T singleReport, PropertyInfo property) where T : ApiReportBase
+    private static string GetValueForProperty<T>(T singleReport, PropertyInfo property) where T : PeriodicReportBase
     {
         var propertyValue = property.GetValue(singleReport)?.ToString() ?? string.Empty;
 

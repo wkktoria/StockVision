@@ -2,6 +2,8 @@ namespace StockVision.Core.Domain.Options;
 
 public class ReportIndicatorOptions
 {
+    public CompanyInfoOptions CompanyInfo { get; set; } = null!;
+
     public List<IndicatorOptions> IndicatorsInfo { get; set; } = [];
 
     public class IndicatorOptions

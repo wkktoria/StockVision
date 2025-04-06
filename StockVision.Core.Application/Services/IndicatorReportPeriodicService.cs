@@ -11,7 +11,7 @@ public class IndicatorReportPeriodicService<T>(
     IFinancialReportRepository<T> financialReportRepository,
     IOptions<ReportIndicatorOptions> reportIndicatorOptions)
     : IIndicatorReportPeriodicService<T>
-    where T : ApiReportBase
+    where T : PeriodicReportBase
 {
     private readonly ReportIndicatorOptions _reportIndicatorOptions = reportIndicatorOptions.Value;
 

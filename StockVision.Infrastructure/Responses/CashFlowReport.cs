@@ -6,7 +6,7 @@ using StockVision.Infrastructure.Constants;
 namespace StockVision.Infrastructure.Responses;
 
 [ApiEndpoint(Endpoint = FinancialModelingRequest.CashFlowReport)]
-public class CashFlowReport : ApiReportBase
+public class CashFlowReport : PeriodicReportBase
 {
     [JsonPropertyName("symbol")] public string Symbol { get; set; }
 

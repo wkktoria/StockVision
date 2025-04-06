@@ -28,7 +28,7 @@ public class FinancialReportService(IServiceProvider serviceProvider) : IFinanci
     private async Task HandleAndFillPeriodicReportsAsync(Dictionary<int, ReportIndicator> financialReport,
         string symbol)
     {
-        var periodicReportClasses = GetClassesByBaseModel(typeof(ApiReportBase));
+        var periodicReportClasses = GetClassesByBaseModel(typeof(PeriodicReportBase));
 
         foreach (var periodicReportClass in periodicReportClasses)
         {
@@ -63,7 +63,7 @@ public class FinancialReportService(IServiceProvider serviceProvider) : IFinanci
     {
         var genericServiceType = typeof(IIndicatorReportPeriodicService<>).MakeGenericType(periodicReportClass);
         var method = genericServiceType
-            .GetMethod(nameof(IIndicatorReportPeriodicService<ApiReportBase>.FillFormulaByPeriodicReportAsync));
+            .GetMethod(nameof(IIndicatorReportPeriodicService<PeriodicReportBase>.FillFormulaByPeriodicReportAsync));
         return method;
     }
 
